@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Site Ledger ER diagram</title>
+  <desc id="desc">Entity relationship diagram showing tables for sites, materials, vendors, purchase orders, inventory transactions, labor, attendance and users.</desc>
+  <rect width="1200" height="760" fill="#f7f9fb"/>
+  <rect x="30" y="30" width="1140" height="700" fill="#ffffff" stroke="#d7e0e8" stroke-width="2" rx="20"/>
+  <text x="60" y="72" fill="#1e2d3d" font-family="Arial, sans-serif" font-size="28" font-weight="700">Site Ledger ER Diagram</text>
+
+  <g font-family="Arial, sans-serif" font-size="15" fill="#1e2d3d">
+    <rect x="120" y="130" width="110" height="95" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="140" y="160" font-weight="700">Sites</text>
+    <text x="140" y="182" fill="#52657b">site_id</text>
+    <text x="140" y="202" fill="#52657b">name</text>
+    <text x="140" y="222" fill="#52657b">location</text>
+
+    <rect x="360" y="130" width="200" height="110" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="380" y="160" font-weight="700">Materials</text>
+    <text x="380" y="182" fill="#52657b">material_id</text>
+    <text x="380" y="202" fill="#52657b">name</text>
+    <text x="380" y="222" fill="#52657b">unit</text>
+    <text x="380" y="242" fill="#52657b">reorder_level</text>
+
+    <rect x="610" y="130" width="200" height="95" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="630" y="160" font-weight="700">Vendors</text>
+    <text x="630" y="182" fill="#52657b">vendor_id</text>
+    <text x="630" y="202" fill="#52657b">name</text>
+    <text x="630" y="222" fill="#52657b">contact_no</text>
+
+    <rect x="860" y="130" width="220" height="120" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="880" y="160" font-weight="700">Purchase_Orders</text>
+    <text x="880" y="182" fill="#52657b">po_id</text>
+    <text x="880" y="202" fill="#52657b">vendor_id</text>
+    <text x="880" y="222" fill="#52657b">site_id</text>
+    <text x="880" y="242" fill="#52657b">order_date</text>
+    <text x="880" y="262" fill="#52657b">status</text>
+
+    <rect x="120" y="420" width="240" height="160" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="140" y="450" font-weight="700">PO_Details</text>
+    <text x="140" y="472" fill="#52657b">po_detail_id</text>
+    <text x="140" y="492" fill="#52657b">po_id</text>
+    <text x="140" y="512" fill="#52657b">material_id</text>
+    <text x="140" y="532" fill="#52657b">quantity</text>
+
+    <rect x="410" y="420" width="350" height="180" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="430" y="450" font-weight="700">Material_Transactions</text>
+    <text x="430" y="472" fill="#52657b">transaction_id</text>
+    <text x="430" y="492" fill="#52657b">site_id</text>
+    <text x="430" y="512" fill="#52657b">material_id</text>
+    <text x="430" y="532" fill="#52657b">type</text>
+    <text x="430" y="552" fill="#52657b">quantity</text>
+    <text x="430" y="572" fill="#52657b">date</text>
+
+    <rect x="820" y="420" width="170" height="160" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="840" y="450" font-weight="700">Labor</text>
+    <text x="840" y="472" fill="#52657b">worker_id</text>
+    <text x="840" y="492" fill="#52657b">name</text>
+    <text x="840" y="512" fill="#52657b">role</text>
+    <text x="840" y="532" fill="#52657b">hourly_rate</text>
+
+    <rect x="1010" y="420" width="160" height="160" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="1030" y="450" font-weight="700">Attendance</text>
+    <text x="1030" y="472" fill="#52657b">attendance_id</text>
+    <text x="1030" y="492" fill="#52657b">worker_id</text>
+    <text x="1030" y="512" fill="#52657b">date</text>
+    <text x="1030" y="532" fill="#52657b">status</text>
+
+    <rect x="510" y="640" width="180" height="70" rx="12" fill="#eef2f6" stroke="#d7e0e8"/>
+    <text x="530" y="670" font-weight="700">Users</text>
+    <text x="530" y="692" fill="#52657b">user_id</text>
+    <text x="530" y="712" fill="#52657b">username</text>
+    <text x="530" y="732" fill="#52657b">role</text>
+  </g>
+
+  <g stroke="#8ea0b3" stroke-width="2" fill="none" opacity="0.9">
+    <line x1="220" y1="220" x2="360" y2="220"/>
+    <line x1="560" y1="220" x2="610" y2="220"/>
+    <line x1="810" y1="220" x2="860" y2="220"/>
+    <line x1="220" y1="220" x2="220" y2="420"/>
+    <line x1="560" y1="220" x2="560" y2="420"/>
+    <line x1="810" y1="220" x2="810" y2="420"/>
+    <line x1="540" y1="580" x2="540" y2="640"/>
+    <line x1="820" y1="580" x2="680" y2="640"/>
+    <line x1="1060" y1="580" x2="1060" y2="640"/>
+    <line x1="760" y1="520" x2="820" y2="520"/>
+    <line x1="990" y1="520" x2="1010" y2="520"/>
+  </g>
+</svg>

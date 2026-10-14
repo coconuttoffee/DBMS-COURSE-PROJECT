@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Ledger</title>
+    <meta
+      name="description"
+      content="Site Ledger helps construction teams track materials, purchase orders, attendance and wages at each site."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="page-home">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Site Ledger home">
+          <span class="brand-mark">SL</span>
+          <span>Site Ledger</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="index.html" class="active">Home</a>
+          <a href="demo.html">Demo</a>
+          <a href="database.html">Database</a>
+          <a href="docs.html">Docs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Construction site control</p>
+            <h1>Keep stock, wages and deliveries in one place.</h1>
+            <p class="lead">
+              Site Ledger helps small construction crews track material movement,
+              receive purchase orders, record daily attendance and calculate what is
+              due to workers before the week ends.
+            </p>
+            <div class="cta-row">
+              <a class="button button-primary" href="demo.html">Try the demo</a>
+              <a class="button button-secondary" href="database.html">View database</a>
+            </div>
+            <ul class="hero-points" aria-label="Key product benefits">
+              <li>Live stock at each site</li>
+              <li>Purchase orders with delivery updates</li>
+              <li>Attendance and wages by date range</li>
+            </ul>
+          </div>
+
+          <div class="hero-panel panel" aria-label="Overview of product data">
+            <div class="panel-head">
+              <span class="tiny-label">Overview</span>
+              <span class="status-badge status-warning">Low stock</span>
+            </div>
+            <div class="stacked-rows">
+              <div class="metric-row">
+                <span>Stock on hand</span>
+                <strong>2,468</strong>
+              </div>
+              <div class="metric-row">
+                <span>Open purchase orders</span>
+                <strong>8</strong>
+              </div>
+              <div class="metric-row">
+                <span>Workers present</span>
+                <strong>19 / 24</strong>
+              </div>
+              <div class="metric-row">
+                <span>Wages due</span>
+                <strong>$6,240</strong>
+              </div>
+            </div>
+            <div class="mini-bars" aria-hidden="true">
+              <span style="height: 48%"></span>
+              <span style="height: 66%"></span>
+              <span style="height: 72%"></span>
+              <span style="height: 54%"></span>
+              <span style="height: 86%"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">What the product does</p>
+            <h2>Built for the daily rhythm of a job site.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="panel feature-card">
+              <h3>Stock control</h3>
+              <p>
+                Track material balances on each site and review the in and out ledger
+                before orders are placed.
+              </p>
+            </article>
+            <article class="panel feature-card">
+              <h3>Purchase orders</h3>
+              <p>
+                Raise orders to vendors, approve the request, and mark delivery when
+                stock arrives on site.
+              </p>
+            </article>
+            <article class="panel feature-card">
+              <h3>Attendance</h3>
+              <p>
+                Record Present, Half-day or Absent for each worker and keep daily site
+                coverage visible.
+              </p>
+            </article>
+            <article class="panel feature-card">
+              <h3>Wages</h3>
+              <p>
+                Calculate wages due for a date range with simple daily rates and partial
+                day adjustments.
+              </p>
+            </article>
+            <article class="panel feature-card">
+              <h3>Low-stock alerts</h3>
+              <p>
+                Flag materials near or below reorder levels so the team reacts before a
+                shortage affects the project.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container split-panel">
+          <div>
+            <p class="eyebrow">Built for small teams</p>
+            <h2>Roles keep site work visible without extra admin overhead.</h2>
+          </div>
+          <div class="panel role-list">
+            <ul>
+              <li><strong>Admin</strong> controls users and setup.</li>
+              <li><strong>Site Manager</strong> reviews stock and attendance.</li>
+              <li><strong>Store Keeper</strong> records stock movement.</li>
+              <li><strong>Viewer</strong> reads reporting data.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-section">
+        <div class="container cta-box panel">
+          <div>
+            <p class="eyebrow">Try the browser demo</p>
+            <h2>Review the live workflow before setting up the full system.</h2>
+          </div>
+          <a class="button button-primary" href="demo.html">Try the demo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p>© <span id="year"></span> Site Ledger</p>
+        <div class="footer-links">
+          <a href="database.html">Database</a>
+          <a href="docs.html">Docs</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

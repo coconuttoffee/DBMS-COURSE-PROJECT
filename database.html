@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Ledger Database</title>
+    <meta
+      name="description"
+      content="Database overview for Site Ledger including the ER diagram and table descriptions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="page-database">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Site Ledger home">
+          <span class="brand-mark">SL</span>
+          <span>Site Ledger</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="demo.html">Demo</a>
+          <a href="database.html" class="active">Database</a>
+          <a href="docs.html">Docs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section page-content">
+      <div class="container">
+        <div class="page-head page-head-tight">
+          <div>
+            <p class="eyebrow">Database design</p>
+            <h1>Entity relationship summary</h1>
+          </div>
+        </div>
+
+        <section class="panel database-figure">
+          <img
+            src="docs/er-diagram.png"
+            alt="ER diagram for Site Ledger database"
+            onerror="this.onerror=null;this.src='docs/er-diagram.svg';"
+          />
+        </section>
+
+        <section class="panel database-table-section">
+          <h2>Core tables</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Table</th>
+                  <th>Purpose</th>
+                  <th>Key fields</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sites</td>
+                  <td>Stores each construction site and location details.</td>
+                  <td>site_id, name, location</td>
+                </tr>
+                <tr>
+                  <td>Materials</td>
+                  <td>Lists materials used across projects with reorder rules.</td>
+                  <td>material_id, name, unit, reorder_level</td>
+                </tr>
+                <tr>
+                  <td>Vendors</td>
+                  <td>Tracks suppliers used for purchase orders.</td>
+                  <td>vendor_id, name, contact_no</td>
+                </tr>
+                <tr>
+                  <td>Purchase_Orders</td>
+                  <td>Stores purchase order header data and approval status.</td>
+                  <td>po_id, vendor_id, site_id, order_date, status</td>
+                </tr>
+                <tr>
+                  <td>PO_Details</td>
+                  <td>Captures all materials on each purchase order.</td>
+                  <td>po_detail_id, po_id, material_id, quantity</td>
+                </tr>
+                <tr>
+                  <td>Material_Transactions</td>
+                  <td>Acts as the stock ledger for all IN and OUT movements.</td>
+                  <td>transaction_id, site_id, material_id, type, quantity, date</td>
+                </tr>
+                <tr>
+                  <td>Labor</td>
+                  <td>Maintains worker and pay information such as hourly rate and role.</td>
+                  <td>worker_id, name, role, hourly_rate</td>
+                </tr>
+                <tr>
+                  <td>Attendance</td>
+                  <td>Records daily presence and calculates partial-day work.</td>
+                  <td>attendance_id, worker_id, date, status</td>
+                </tr>
+                <tr>
+                  <td>Users</td>
+                  <td>Stores platform users and access roles.</td>
+                  <td>user_id, username, role</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p>© <span id="year"></span> Site Ledger</p>
+        <div class="footer-links">
+          <a href="demo.html">Demo</a>
+          <a href="docs.html">Docs</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

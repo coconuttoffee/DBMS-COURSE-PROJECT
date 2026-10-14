@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Ledger Docs</title>
+    <meta
+      name="description"
+      content="Documentation for running the full Site Ledger application locally with Python and MySQL."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="page-docs">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Site Ledger home">
+          <span class="brand-mark">SL</span>
+          <span>Site Ledger</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="demo.html">Demo</a>
+          <a href="database.html">Database</a>
+          <a href="docs.html" class="active">Docs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section page-content">
+      <div class="container docs-grid">
+        <article class="panel docs-panel">
+          <p class="eyebrow">Local setup</p>
+          <h1>Run the full version locally</h1>
+          <ol class="steps">
+            <li>Install Python 3.10 or later.</li>
+            <li>Install MySQL Server and create a development database named <strong>site_ledger</strong>.</li>
+            <li>Create a virtual environment and install the project dependencies from the repository.</li>
+            <li>Set the database connection details in the app configuration file.</li>
+            <li>Run the database migration or schema script.</li>
+            <li>Start the application server and open the app in a browser.</li>
+          </ol>
+
+          <div class="code-block">
+            <pre><code>python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python app.py</code></pre>
+          </div>
+
+          <h2>Database settings</h2>
+          <p>
+            Configure the MySQL connection in the app environment settings using the
+            host, user, password and database name. Keep credentials out of source
+            control and use environment variables in production.
+          </p>
+
+          <h2>Repository</h2>
+          <p>
+            See the full application source and setup notes in the GitHub repository:
+            <a href="https://github.com/your-org/site-ledger" target="_blank" rel="noreferrer">
+              https://github.com/your-org/site-ledger
+            </a>
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p>© <span id="year"></span> Site Ledger</p>
+        <div class="footer-links">
+          <a href="demo.html">Demo</a>
+          <a href="database.html">Database</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

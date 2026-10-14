@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Ledger Demo</title>
+    <meta
+      name="description"
+      content="Interactive browser demo for Site Ledger with stock, purchase orders and attendance tracking."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/data.js" defer></script>
+    <script src="js/demo.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body class="page-demo">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Site Ledger home">
+          <span class="brand-mark">SL</span>
+          <span>Site Ledger</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="demo.html" class="active">Demo</a>
+          <a href="database.html">Database</a>
+          <a href="docs.html">Docs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section demo-shell">
+      <div class="container">
+        <div class="page-head">
+          <div>
+            <p class="eyebrow">Browser demo</p>
+            <h1>Live project control</h1>
+          </div>
+          <button id="resetDemoButton" class="button button-secondary" type="button">
+            Reset demo data
+          </button>
+        </div>
+
+        <section class="panel demo-section" aria-labelledby="overview-heading">
+          <div class="section-title-row">
+            <h2 id="overview-heading">Overview</h2>
+          </div>
+          <div id="overviewCards" class="overview-grid"></div>
+        </section>
+
+        <section class="panel demo-section" aria-labelledby="stock-heading">
+          <div class="section-title-row">
+            <h2 id="stock-heading">Stock</h2>
+          </div>
+          <div class="toolbar">
+            <label>
+              Site
+              <select id="stockSiteFilter"></select>
+            </label>
+            <label>
+              Material
+              <select id="stockMaterialFilter"></select>
+            </label>
+            <button id="recordUsageButton" class="button button-primary" type="button">
+              Record usage
+            </button>
+          </div>
+          <div id="stockSummary" class="summary-grid"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Site</th>
+                  <th>Material</th>
+                  <th>Stock on hand</th>
+                  <th>Reorder level</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="stockTableBody"></tbody>
+            </table>
+          </div>
+          <div class="ledger-box">
+            <h3>Material ledger</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Site</th>
+                    <th>Material</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                    <th>Reference</th>
+                    <th>Note</th>
+                  </tr>
+                </thead>
+                <tbody id="ledgerTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel demo-section" aria-labelledby="po-heading">
+          <div class="section-title-row">
+            <h2 id="po-heading">Purchase orders</h2>
+          </div>
+
+          <div class="po-layout">
+            <form id="purchaseOrderForm" class="stack-form">
+              <div class="field-row">
+                <label>
+                  Vendor
+                  <select id="poVendor"></select>
+                </label>
+                <label>
+                  Order date
+                  <input id="poDate" type="date" />
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label>
+                  Site
+                  <select id="poSite"></select>
+                </label>
+              </div>
+
+              <div class="items-box">
+                <div class="items-head">
+                  <span>Materials</span>
+                  <button id="addPoItemButton" class="button button-secondary" type="button">
+                    Add item
+                  </button>
+                </div>
+                <div id="poItemsContainer" class="po-items"></div>
+              </div>
+
+              <label>
+                Notes
+                <textarea id="poNotes" rows="3" placeholder="Delivery notes"></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">Create order</button>
+            </form>
+
+            <div class="po-list-wrap">
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>PO</th>
+                      <th>Vendor</th>
+                      <th>Site</th>
+                      <th>Status</th>
+                      <th>Items</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="purchaseOrdersTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel demo-section" aria-labelledby="attendance-heading">
+          <div class="section-title-row">
+            <h2 id="attendance-heading">Attendance and pay</h2>
+          </div>
+
+          <div class="attendance-header">
+            <label>
+              Attendance date
+              <input id="attendanceDate" type="date" />
+            </label>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Worker</th>
+                  <th>Role</th>
+                  <th>Rate</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="attendanceTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="pay-range">
+            <label>
+              Start date
+              <input id="payStartDate" type="date" />
+            </label>
+            <label>
+              End date
+              <input id="payEndDate" type="date" />
+            </label>
+            <button id="calculatePayButton" class="button button-primary" type="button">
+              Calculate wages due
+            </button>
+          </div>
+
+          <div id="paySummary" class="pay-summary"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="usageDialog" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="usageTitle">
+      <div class="modal-card panel">
+        <div class="modal-head">
+          <h3 id="usageTitle">Record usage</h3>
+          <button id="closeUsageDialog" class="close-button" type="button">Close</button>
+        </div>
+
+        <form id="usageForm" class="stack-form">
+          <div class="field-row">
+            <label>
+              Site
+              <select id="usageSite"></select>
+            </label>
+            <label>
+              Material
+              <select id="usageMaterial"></select>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label>
+              Quantity
+              <input id="usageQuantity" type="number" min="1" value="1" />
+            </label>
+          </div>
+
+          <label>
+            Note
+            <textarea id="usageNote" rows="2" placeholder="Material used on site"></textarea>
+          </label>
+
+          <button class="button button-primary" type="submit">Save usage</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+  </body>
+</html>

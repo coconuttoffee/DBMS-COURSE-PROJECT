@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Site Ledger</title>
+  <desc id="desc">Logo for Site Ledger</desc>
+  <rect width="120" height="120" rx="18" fill="#14263f"/>
+  <rect x="14" y="14" width="92" height="92" rx="14" fill="#eb7d2c"/>
+  <path d="M34 78V42h16l10 12 10-12h16v36h-12V57L60 71 46 57v21H34z" fill="#fff"/>
+</svg>
